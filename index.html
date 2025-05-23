@@ -85,7 +85,7 @@
     <script>
         // Récupérer l'URL actuelle pour construire les liens
         const currentUrl = window.location.href;
-        const baseUrl = currentUrl.replace(/\/$/, '') + '/audio/';
+        const baseUrl = currentUrl.replace(/\/$/, '') + '/Audio/';
         document.getElementById('baseUrl').textContent = baseUrl;
 
         // Liste des fichiers audio (à adapter selon vos fichiers)
@@ -108,7 +108,7 @@
             audioItem.innerHTML = `
                 <div class="audio-title">${audio.title}</div>
                 <audio controls preload="none">
-                    <source src="audio/${audio.file}" type="audio/mpeg">
+                    <source src="Audio/${audio.file}" type="audio/mpeg">
                     Votre navigateur ne supporte pas l'audio HTML5.
                 </audio>
             `;
@@ -122,7 +122,7 @@
 
         // Tester la disponibilité des fichiers
         audioFiles.forEach(audio => {
-            fetch(`audio/${audio.file}`, { method: 'HEAD' })
+            fetch(`Audio/${audio.file}`, { method: 'HEAD' })
                 .then(response => {
                     if (!response.ok) {
                         console.warn(`Fichier non trouvé: ${audio.file}`);
