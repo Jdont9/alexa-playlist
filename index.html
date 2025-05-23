@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Alexa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .audio-list {
+            display: grid;
+            gap: 15px;
+        }
+        .audio-item {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .audio-title {
+            font-weight: bold;
+        }
+        audio {
+            max-width: 200px;
+        }
+        .status {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 5px;
+            text-align: center;
+        }
+        .url-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎵 Playlist Alexa</h1>
+        
+        <div class="status">
+            ✅ GitHub Pages déployé avec succès !
+        </div>
+
+        <div class="audio-list" id="audioList">
+            <!-- Les fichiers audio seront listés ici -->
+        </div>
+
+        <div class="url-info">
+            <h3>URLs pour votre skill Alexa :</h3>
+            <p>Base URL : <code id="baseUrl"></code></p>
+            <div id="urlList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Récupérer l'URL actuelle pour construire les liens
+        const currentUrl = window.location.href;
+        const baseUrl = currentUrl.replace(/\/$/, '') + '/audio/';
+        document.getElementById('baseUrl').textContent = baseUrl;
+
+        // Liste des fichiers audio (à adapter selon vos fichiers)
+        const audioFiles = [
+            { name: 'Table de 1', title: 'Table de 1', file: 'Apprendre-la-table-de-1.mp3' },
+            { name: 'Table de 2', title: 'Table de 2', file: 'Apprendre-la-table-de-2.mp3' },
+            { name: 'nature', title: 'Sons de la Nature', file: 'nature.mp3' },
+            { name: 'piano', title: 'Piano Classique', file: 'piano.mp3' },
+            { name: 'jazz', title: 'Jazz Ambient', file: 'jazz.mp3' }
+        ];
+
+        // Créer la liste des fichiers audio
+        const audioList = document.getElementById('audioList');
+        const urlList = document.getElementById('urlList');
+        
+        audioFiles.forEach(audio => {
+            // Créer l'élément audio dans la page
+            const audioItem = document.createElement('div');
+            audioItem.className = 'audio-item';
+            audioItem.innerHTML = `
+                <div class="audio-title">${audio.title}</div>
+                <audio controls preload="none">
+                    <source src="audio/${audio.file}" type="audio/mpeg">
+                    Votre navigateur ne supporte pas l'audio HTML5.
+                </audio>
+            `;
+            audioList.appendChild(audioItem);
+
+            // Ajouter l'URL pour la skill Alexa
+            const urlItem = document.createElement('div');
+            urlItem.innerHTML = `<strong>${audio.name}</strong> : <code>${baseUrl}${audio.file}</code>`;
+            urlList.appendChild(urlItem);
+        });
+
+        // Tester la disponibilité des fichiers
+        audioFiles.forEach(audio => {
+            fetch(`audio/${audio.file}`, { method: 'HEAD' })
+                .then(response => {
+                    if (!response.ok) {
+                        console.warn(`Fichier non trouvé: ${audio.file}`);
+                    }
+                })
+                .catch(error => {
+                    console.warn(`Erreur lors du test de ${audio.file}:`, error);
+                });
+        });
+    </script>
+</body>
+</html>
