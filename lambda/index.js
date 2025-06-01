@@ -2,13 +2,13 @@ const Alexa = require('ask-sdk-core');
 
 // Base de données des titres et leurs URLs
 // Remplacez YOUR_USERNAME et YOUR_REPO par vos vraies valeurs GitHub
-const BASE_URL = "https://YOUR_USERNAME.github.io/YOUR_REPO/audio/";
+const BASE_URL = "https://jdont9.github.io/alexa-playlist/audio/";
 
 const MUSIC_DATABASE = {
-    "relaxation": {
-        title: "Musique de Relaxation",
-        url: BASE_URL + "relaxation.mp3",
-        duration: 300000 // en millisecondes
+    "Table de 1": {
+        title: "Table de 1",
+        url: BASE_URL + "Apprendre-la-table-de-1.mp3",
+        duration: 193000 // en millisecondes
     },
     "meditation": {
         title: "Méditation Guidée",
