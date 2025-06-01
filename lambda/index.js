@@ -10,26 +10,52 @@ const MUSIC_DATABASE = {
         url: BASE_URL + "Apprendre-la-table-de-1.mp3",
         duration: 193000 // en millisecondes
     },
-    "meditation": {
-        title: "Méditation Guidée",
-        url: BASE_URL + "meditation.mp3", 
-        duration: 600000
+    "Table de 2": {
+        title: "Table de 2",
+        url: BASE_URL + "Apprendre-la-table-de-2.mp3",
+        duration: 193000 // en millisecondes
     },
-    "nature": {
-        title: "Sons de la Nature",
-        url: BASE_URL + "nature.mp3",
-        duration: 1200000
+    "Table de 3": {
+        title: "Table de 3",
+        url: BASE_URL + "Apprendre-la-table-de-3.mp3",
+        duration: 193000 // en millisecondes
     },
-    "piano": {
-        title: "Piano Classique",
-        url: BASE_URL + "piano.mp3",
-        duration: 480000
+    "Table de 4": {
+        title: "Table de 4",
+        url: BASE_URL + "Apprendre-la-table-de-4.mp3",
+        duration: 193000 // en millisecondes
     },
-    "jazz": {
-        title: "Jazz Ambient",
-        url: BASE_URL + "jazz.mp3",
-        duration: 720000
+    "Table de 5: {
+        title: "Table de 5",
+        url: BASE_URL + "Apprendre-la-table-de-5.mp3",
+        duration: 193000 // en millisecondes
+    },
+    "Table de 6": {
+        title: "Table de 6",
+        url: BASE_URL + "Apprendre-la-table-de-6.mp3",
+        duration: 193000 // en millisecondes
+    },
+    "Table de 7": {
+        title: "Table de 7",
+        url: BASE_URL + "Apprendre-la-table-de-7.mp3",
+        duration: 193000 // en millisecondes
+    },
+    "Table de 8": {
+        title: "Table de 8",
+        url: BASE_URL + "Apprendre-la-table-de-8.mp3",
+        duration: 193000 // en millisecondes
+    },
+    "Table de 9": {
+        title: "Table de 9",
+        url: BASE_URL + "Apprendre-la-table-de-9.mp3",
+        duration: 193000 // en millisecondes
+    },
+    "Table de 10": {
+        title: "Table de 10",
+        url: BASE_URL + "Apprendre-la-table-de-10.mp3",
+        duration: 193000 // en millisecondes
     }
+
     // Ajoutez facilement vos autres titres ici
 };
 
