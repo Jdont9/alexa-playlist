@@ -85,16 +85,21 @@
     <script>
         // Récupérer l'URL actuelle pour construire les liens
         const currentUrl = window.location.href;
-        const baseUrl = currentUrl.replace(/\/$/, '') + '/Audio/';
+        const baseUrl = currentUrl.replace(/\/$/, '') + '/audio/';
         document.getElementById('baseUrl').textContent = baseUrl;
 
         // Liste des fichiers audio (à adapter selon vos fichiers)
         const audioFiles = [
             { name: 'Table de 1', title: 'Table de 1', file: 'Apprendre-la-table-de-1.mp3' },
             { name: 'Table de 2', title: 'Table de 2', file: 'Apprendre-la-table-de-2.mp3' },
-            { name: 'nature', title: 'Sons de la Nature', file: 'nature.mp3' },
-            { name: 'piano', title: 'Piano Classique', file: 'piano.mp3' },
-            { name: 'jazz', title: 'Jazz Ambient', file: 'jazz.mp3' }
+            { name: 'Table de 3', title: 'Table de 3', file: 'Apprendre-la-table-de-3.mp3' },
+            { name: 'Table de 4', title: 'Table de 4', file: 'Apprendre-la-table-de-4.mp3' },
+            { name: 'Table de 5', title: 'Table de 5, file: 'Apprendre-la-table-de-5.mp3' },
+            { name: 'Table de 6', title: 'Table de 6', file: 'Apprendre-la-table-de-6.mp3' },
+            { name: 'Table de 7', title: 'Table de 7', file: 'Apprendre-la-table-de-7.mp3' },
+            { name: 'Table de 8', title: 'Table de 8', file: 'Apprendre-la-table-de-8.mp3' },
+            { name: 'Table de 9', title: 'Table de 9', file: 'Apprendre-la-table-de-9.mp3' },
+            { name: 'Table de 10', title: 'Table de 10', file: 'Apprendre-la-table-de-10.mp3' }
         ];
 
         // Créer la liste des fichiers audio
@@ -108,7 +113,7 @@
             audioItem.innerHTML = `
                 <div class="audio-title">${audio.title}</div>
                 <audio controls preload="none">
-                    <source src="Audio/${audio.file}" type="audio/mpeg">
+                    <source src="audio/${audio.file}" type="audio/mpeg">
                     Votre navigateur ne supporte pas l'audio HTML5.
                 </audio>
             `;
